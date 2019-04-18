@@ -6,9 +6,25 @@ const exec = (args, start) => {
     return start != null ? toArray(arguments, start) : toArray(arguments);
   };
 
-  return func.apply(null, args);
+  return args ? func.apply(null, args) : func();
 
 };
+
+test("should throw error on wrong 'args' argument", () => {
+
+  expect(() => {
+    toArray({}, 0);
+  }).toThrowError(TypeError);
+
+});
+
+test("should throw error on wrong 'start' argument", () => {
+
+  expect(() => {
+    toArray([], "wrong argument");
+  }).toThrowError(TypeError);
+
+});
 
 test("should convert arguments into a new array", () => {
 
