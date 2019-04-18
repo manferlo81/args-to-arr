@@ -1,6 +1,6 @@
 {
   "name": "args-to-arr",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Arguments to array, the easy way",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
