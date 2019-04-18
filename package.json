@@ -16,7 +16,7 @@
     "dev": "rollup -cw",
     "build": "rollup -c",
     "clean": "rm -rf dist coverage",
-    "test": "jest"
+    "test": "jest --colors"
   },
   "files": [
     "src",
