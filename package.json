@@ -15,6 +15,7 @@
   "scripts": {
     "dev": "rollup -cw",
     "build": "rollup -c",
+    "clean": "rm -rf dist coverage",
     "test": "jest"
   },
   "files": [
