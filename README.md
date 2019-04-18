@@ -15,7 +15,7 @@ npm install args-to-arr
 #### Syntax
 
 ```typescript
-toArray<T>(arr: ArrayLike<T>, start?: number): T[];
+toArray<T>(arr: ArrayLike<T>, start: number = 0): T[];
 ```
 
 > *Note that* `args-to-arr` *supports any array-like object*
@@ -39,4 +39,4 @@ function anything(firstArg) {
 
 ## License
 
-MIT License
+[MIT License](https://github.com/manferlo81/args-to-arr/blob/master/LICENSE)
