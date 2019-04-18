@@ -44,7 +44,7 @@ test("should return a copy of the array", () => {
 
 });
 
-test("should start from 0 if 'start' argument not provided", () => {
+test("should default to 0 if 'start' argument not provided", () => {
 
   const args = [1, 5, true, null, {}];
   const result = exec(args, null);
