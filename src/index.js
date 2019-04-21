@@ -1,6 +1,8 @@
-export default function toArray(args, start) {
+import isArrayLike from "is-array-like";
 
-  if (!(args && "length" in args && typeof args.length === "number")) {
+function toArray(args, start) {
+
+  if (!isArrayLike(args)) {
     throw new TypeError(`${args} can't be converted to array.`);
   }
 
@@ -21,3 +23,5 @@ export default function toArray(args, start) {
   return params;
 
 }
+
+export default toArray;
