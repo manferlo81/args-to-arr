@@ -28,7 +28,8 @@
     "eslint": "^5.16.0",
     "jest": "^24.7.1",
     "rollup": "^1.10.0",
-    "rollup-plugin-buble": "^0.19.6"
+    "rollup-plugin-buble": "^0.19.6",
+    "rollup-plugin-terser": "^4.0.4"
   },
   "author": "Manuel Fernandez <manferlo81@gmail.com>",
   "repository": {
