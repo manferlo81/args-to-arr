@@ -1,23 +1,29 @@
 import buble from "rollup-plugin-buble";
+import optimize from "./plugins/optimize";
 
-import { main, module as esModule } from "./package.json";
+import { main, module as esModule, dependencies } from "./package.json";
 
-/** @type {string} */
+const DEV = process.env.ROLLUP_WATCH;
+
 const input = "src/index.js";
+const sourcemap = true;
 
 /** @type {import("rollup").OutputOptions} */
 const cjsOutput = {
   file: main,
   format: "cjs",
-  sourcemap: true,
+  sourcemap,
+  interop: false,
 };
 
 /** @type {import("rollup").OutputOptions} */
 const esOutput = {
   file: esModule,
   format: "es",
-  sourcemap: true,
+  sourcemap,
 };
+
+const external = Object.keys(dependencies);
 
 /** @type {import("rollup").RollupOptions} */
 const config = {
@@ -25,7 +31,10 @@ const config = {
   input,
   output: [cjsOutput, esOutput],
 
+  external,
+
   plugins: [
+
     buble({
       target: {
         node: 0.12,
@@ -36,6 +45,15 @@ const config = {
         edge: 12,
       },
     }),
+
+    !DEV && optimize({
+      sourcemap,
+      toplevel: true,
+      nameCache: {},
+      indent: 2,
+      quote: "\"",
+    }),
+
   ],
 
 };
