@@ -28,25 +28,15 @@ function optimize(options) {
     mangle: false,
     compress: {
       defaults: false,
-      booleans: true,
-      collapse_vars: true,
-      dead_code: true,
-      evaluate: true,
-      hoist_props: true,
-      if_return: true,
-      inline: true,
       join_vars: true,
-      loops: true,
-      properties: true,
-      reduce_funcs: true,
-      reduce_vars: true,
-      toplevel: true,
     },
     output: {
       beautify: true,
       comments: true,
       indent_level: indent,
       quote_style,
+      safari10: true,
+      webkit: true,
     },
   });
 
