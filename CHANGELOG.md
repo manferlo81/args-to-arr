@@ -1,3 +1,8 @@
+#v1.1.x
+
+* Use `is-array-like`
+* Optimize output
+
 #v1.0.x
 
 * First Stable Release
