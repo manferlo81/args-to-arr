@@ -1,6 +1,6 @@
 import isArrayLike from "is-array-like";
 
-function toArray(args, start) {
+function toArray<T>(args: ArrayLike<T>, start?: number): T[] {
 
   if (!isArrayLike(args)) {
     throw new TypeError(`${args} can't be converted to array.`);
