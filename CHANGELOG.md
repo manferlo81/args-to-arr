@@ -1,3 +1,7 @@
+#v1.2.x
+
+* Build using typescript
+
 #v1.1.x
 
 * Use `is-array-like`
