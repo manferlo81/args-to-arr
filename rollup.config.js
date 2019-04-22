@@ -1,8 +1,6 @@
 import buble from "rollup-plugin-buble";
 import optimize from "./plugins/optimize";
 import { ts, dts } from "rollup-plugin-dts";
-import resolve from "rollup-plugin-node-resolve";
-import commonjs from "rollup-plugin-commonjs";
 import equals from "rollup-plugin-export-equals";
 
 import { main, module as esModule, typings, dependencies } from "./package.json";
@@ -41,12 +39,12 @@ const jsConfig = {
 
   plugins: [
 
-    resolve({
-      jsnext: true,
-      extensions: [".ts"],
-    }),
+    // resolve({
+    //   jsnext: true,
+    //   extensions: [".ts"],
+    // }),
 
-    commonjs(),
+    // commonjs(),
 
     ts({ banner: !!DEV }),
 
