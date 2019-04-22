@@ -1,2 +1,3 @@
-declare function toArray<T = any>(args: ArrayLike<T>, start?: number): T[]
-export = toArray;
+declare function toArray<T>(args: ArrayLike<T>, start?: number): T[];
+
+export default toArray;
