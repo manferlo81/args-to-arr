@@ -32,6 +32,7 @@
     "jest": "^24.7.1",
     "rollup": "^1.10.1",
     "rollup-plugin-buble": "^0.19.6",
+    "rollup-plugin-dts": "^0.15.0",
     "rollup-plugin-terser": "^4.0.4"
   },
   "author": "Manuel Fernandez <manferlo81@gmail.com>",
