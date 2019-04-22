@@ -1,6 +1,6 @@
 import buble from "rollup-plugin-buble";
 import optimize from "./plugins/optimize";
-import dts from "rollup-plugin-dts";
+import { ts, dts } from "rollup-plugin-dts";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
 import equals from "rollup-plugin-export-equals";
@@ -12,7 +12,6 @@ const DEV = process.env.ROLLUP_WATCH;
 const input = "src/index.ts";
 const sourcemap = true;
 
-/** @type {import("rollup").OutputOptions} */
 const cjsOutput = {
   file: main,
   format: "cjs",
@@ -20,7 +19,6 @@ const cjsOutput = {
   interop: false,
 };
 
-/** @type {import("rollup").OutputOptions} */
 const esOutput = {
   file: esModule,
   format: "es",
@@ -34,41 +32,6 @@ const dtsOutput = {
 
 const external = Object.keys(dependencies);
 
-// /** @type {import("rollup").RollupOptions} */
-// const config = {
-
-//   input,
-//   output: [cjsOutput, esOutput],
-
-//   external,
-
-//   plugins: [
-
-//     buble({
-//       target: {
-//         node: 0.12,
-//         ie: 8,
-//         chrome: 48,
-//         firefox: 43,
-//         safari: 8,
-//         edge: 12,
-//       },
-//     }),
-
-//     !DEV && optimize({
-//       sourcemap,
-//       toplevel: true,
-//       nameCache: {},
-//       indent: 2,
-//       quote: "\"",
-//     }),
-
-//   ],
-
-// };
-
-
-/** @type {import("rollup").RollupOptions} */
 const jsConfig = {
 
   input: "src/index.ts",
@@ -85,13 +48,7 @@ const jsConfig = {
 
     commonjs(),
 
-    dts({
-      banner: !!DEV,
-      compileMode: "js",
-      compilerOptions: {
-        target: "esnext",
-      },
-    }),
+    ts({ banner: !!DEV }),
 
     buble({
       target: {
@@ -116,7 +73,6 @@ const jsConfig = {
 
 };
 
-/** @type {import("rollup").RollupOptions} */
 const dtsConfig = {
 
   input,
@@ -126,10 +82,7 @@ const dtsConfig = {
 
   plugins: [
 
-    dts({
-      banner: !!DEV,
-      compileMode: "dts",
-    }),
+    dts({ banner: !!DEV }),
 
     equals(),
 
