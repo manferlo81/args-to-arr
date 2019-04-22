@@ -15,7 +15,7 @@
   "scripts": {
     "dev": "rollup -cw",
     "build": "rollup -c",
-    "clean": "rm -rf dist coverage",
+    "clean": "rm -rf dist types coverage",
     "test": "jest --colors"
   },
   "files": [
