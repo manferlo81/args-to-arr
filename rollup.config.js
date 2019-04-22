@@ -3,6 +3,7 @@ import optimize from "./plugins/optimize";
 import dts from "rollup-plugin-dts";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
+import equals from "rollup-plugin-export-equals";
 
 import { main, module as esModule, typings, dependencies } from "./package.json";
 
@@ -129,6 +130,8 @@ const dtsConfig = {
       banner: !!DEV,
       compileMode: "dts",
     }),
+
+    equals(),
 
   ],
 
