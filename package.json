@@ -16,7 +16,8 @@
     "dev": "rollup -cw",
     "build": "rollup -c",
     "clean": "rm -rf dist types coverage",
-    "test": "jest --colors"
+    "test": "jest --colors",
+    "preversion": "npm run clean && npm run build && npm test"
   },
   "files": [
     "src",
@@ -33,7 +34,7 @@
     "rollup": "^1.10.1",
     "rollup-plugin-buble": "^0.19.6",
     "rollup-plugin-dts": "^0.15.0",
-    "rollup-plugin-export-equals": "^0.0.3",
+    "rollup-plugin-export-equals": "^0.1.0",
     "rollup-plugin-terser": "^4.0.4",
     "tslint": "^5.16.0",
     "typescript": "^3.4.4"
