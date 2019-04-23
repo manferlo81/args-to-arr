@@ -13,9 +13,10 @@
     "slice"
   ],
   "scripts": {
-    "dev": "rollup -cw",
-    "build": "rollup -c",
+    "lint": "tslint src/**",
     "clean": "rm -rf dist types coverage",
+    "dev": "bundlib -dw",
+    "build": "npm run lint && bundlib -d",
     "test": "jest --colors",
     "preversion": "npm run clean && npm run build && npm test"
   },
