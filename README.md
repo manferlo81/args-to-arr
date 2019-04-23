@@ -25,11 +25,11 @@ toArray<T>(arr: ArrayLike<T>, start: number = 0): T[];
 ```javascript
 import toArray from "args-to-arr";
 
-
 function anything(firstArg) {
 
   // convert arguments to array
   // starting from argument 1
+  // it won't include firstArg
   const args = toArray(arguments, 1);
 
   // do something with the array
