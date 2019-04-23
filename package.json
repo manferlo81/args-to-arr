@@ -4,6 +4,9 @@
   "description": "Arguments to array, the easy way",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
+  "bundlib": {
+    "equals": true
+  },
   "typings": "types/index.d.ts",
   "keywords": [
     "arguments",
@@ -16,7 +19,7 @@
     "lint": "tslint src/**",
     "clean": "rm -rf dist types coverage",
     "dev": "bundlib -dw",
-    "build": "npm run lint && bundlib -d",
+    "build": "npm run lint && bundlib",
     "test": "jest --colors",
     "preversion": "npm run clean && npm run build && npm test"
   },
