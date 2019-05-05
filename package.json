@@ -4,7 +4,10 @@
   "description": "Arguments to array, the easy way",
   "main": "dist/args-to-arr.js",
   "module": "dist/args-to-arr.mjs",
+  "browser": "dist/args-to-arr.umd.js",
   "bundlib": {
+    "name": "toArray",
+    "umd": "dist/args-to-arr.umd.js",
     "equals": true
   },
   "typings": "types/index.d.ts",
@@ -19,7 +22,7 @@
     "lint": "tslint src/**",
     "clean": "rm -rf dist types coverage",
     "dev": "bundlib -dw",
-    "build": "npm run lint && bundlib",
+    "build": "npm run lint && bundlib -d",
     "test": "jest --colors",
     "preversion": "npm run clean && npm run build && npm test"
   },
