@@ -1,64 +1,62 @@
 const toArray = require("..");
 
-const exec = (args, start) => {
+describe("args-to-arr", () => {
 
-  const func = function () {
-    return start != null ? toArray(arguments, start) : toArray(arguments);
+  const exec = (args, start) => {
+
+    const func = function () {
+      return start != null ? toArray(arguments, start) : toArray(arguments);
+    };
+
+    return args ? func.apply(null, args) : func();
+
   };
 
-  return args ? func.apply(null, args) : func();
+  test("should throw error on wrong 'args' argument", () => {
 
-};
+    const callWithWrongArgs = () => toArray({}, 0);
 
-test("should throw error on wrong 'args' argument", () => {
+    expect(callWithWrongArgs).toThrowError(TypeError);
 
-  expect(() => {
-    toArray({}, 0);
-  }).toThrowError(TypeError);
+  });
 
-});
+  test("should throw error on wrong 'start' argument", () => {
 
-test("should throw error on wrong 'start' argument", () => {
+    const callWithWrongStart = () => toArray([], "wrong argument");
 
-  expect(() => {
-    toArray([], "wrong argument");
-  }).toThrowError(TypeError);
+    expect(callWithWrongStart).toThrowError(TypeError);
 
-});
+  });
 
-test("should convert arguments into a new array", () => {
+  test("should return a copy of the array", () => {
 
-  const args = [1, 5, true, null, {}];
-  const result = exec(args, 0);
+    const args = [1, 5, true, null, {}];
+    const result = exec(args, 0);
 
-  expect(result).not.toBe(args);
+    expect(result).toEqual(args);
+    expect(result).not.toBe(args);
 
-});
+  });
 
-test("should return a copy of the array", () => {
+  test("should default to 0 if 'start' argument not provided", () => {
 
-  const args = [1, 5, true, null, {}];
-  const result = exec(args, 0);
+    const args = [1, 5, true, null, {}];
+    const result = exec(args, null);
 
-  expect(result).toMatchObject(args);
+    expect(result).toEqual(args);
 
-});
+  });
 
-test("should default to 0 if 'start' argument not provided", () => {
+  test("should start from provided 'start' argument", () => {
 
-  const args = [1, 5, true, null, {}];
-  const result = exec(args, null);
+    const expected = [true, null, {}];
+    const args = [1, 5, ...expected];
+    const start = args.length - expected.length;
 
-  expect(result).toMatchObject(args);
+    const result = exec(args, start);
 
-});
+    expect(result).toEqual(expected);
 
-test("should start from provided argument", () => {
-
-  const expected = [true, null, {}];
-  const args = [1, 5, ...expected];
-  const result = exec(args, args.length - expected.length);
-
-  expect(result).toMatchObject(expected);
+  });
 
 });
