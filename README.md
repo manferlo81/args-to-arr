@@ -1,13 +1,21 @@
 # args-to-arr
 
-[![CircleCI](https://circleci.com/gh/manferlo81/args-to-arr.svg?style=svg)](https://circleci.com/gh/manferlo81/args-to-arr) [![Greenkeeper badge](https://badges.greenkeeper.io/manferlo81/args-to-arr.svg)](https://greenkeeper.io/) [![npm](https://img.shields.io/npm/v/args-to-arr.svg)](https://www.npmjs.com/package/args-to-arr) [![codecov](https://codecov.io/gh/manferlo81/args-to-arr/branch/master/graph/badge.svg)](https://codecov.io/gh/manferlo81/args-to-arr) [![GitHub](https://img.shields.io/github/license/manferlo81/args-to-arr.svg)](https://github.com/manferlo81/args-to-arr/blob/master/LICENSE)
+[![CircleCI](https://circleci.com/gh/manferlo81/args-to-arr.svg?style=svg)](https://circleci.com/gh/manferlo81/args-to-arr) [![Greenkeeper badge](https://badges.greenkeeper.io/manferlo81/args-to-arr.svg)](https://greenkeeper.io/) [![npm](https://img.shields.io/npm/v/args-to-arr.svg)](https://www.npmjs.com/package/args-to-arr) [![codecov](https://codecov.io/gh/manferlo81/args-to-arr/branch/master/graph/badge.svg)](https://codecov.io/gh/manferlo81/args-to-arr) [![GitHub](https://img.shields.io/github/license/manferlo81/args-to-arr.svg)](LICENSE)
 
 Arguments to array, the easy way
 
 ## Install
 
+#### npm
+
 ```sh
 npm install args-to-arr
+```
+
+#### jsDelivr
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/args-to-arr@1/dist/args-to-arr.umd.js"></script>
 ```
 
 ## Usage
@@ -39,4 +47,4 @@ function anything(firstArg) {
 
 ## License
 
-[MIT License](https://github.com/manferlo81/args-to-arr/blob/master/LICENSE)
+[MIT License](LICENSE)
