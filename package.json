@@ -35,10 +35,10 @@
     "is-array-like": "^1.1.2"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.11",
-    "bundlib": "^0.2.1",
+    "@types/jest": "^24.0.12",
+    "bundlib": "^0.2.4",
     "eslint": "^5.16.0",
-    "jest": "^24.7.1",
+    "jest": "^24.8.0",
     "tslint": "^5.16.0",
     "typescript": "^3.4.5"
   },
