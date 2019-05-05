@@ -1,3 +1,7 @@
+#v1.3.x
+
+* CDN / browser support
+
 #v1.2.x
 
 * Build using typescript
