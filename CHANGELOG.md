@@ -1,3 +1,7 @@
+#v1.3.2
+
+* dependencies updated
+
 #v1.3.x
 
 * CDN / browser support
