@@ -12,6 +12,8 @@ Arguments to array, the easy way
 npm install args-to-arr
 ```
 
+## CDN
+
 #### jsDelivr
 
 ```html
@@ -47,4 +49,4 @@ function anything(firstArg) {
 
 ## License
 
-[MIT License](LICENSE)
+[MIT](LICENSE) &copy; Manuel Fernández
