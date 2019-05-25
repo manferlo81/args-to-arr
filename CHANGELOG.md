@@ -1,7 +1,8 @@
 #v1.3.3
 
-* added jsDelivr badge
 * improved documentation
+* added jsDelivr badge
+* added types badge
 
 #v1.3.2
 
