@@ -6,23 +6,35 @@ Arguments to array, the easy way
 
 ## Install
 
-#### npm
-
 ```sh
 npm install args-to-arr
 ```
 
 ## CDN
 
-#### jsDelivr
+#### www.jsDelivr.com
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/args-to-arr@1/dist/args-to-arr.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/args-to-arr/dist/args-to-arr.umd.js"></script>
+```
+
+##### for production
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/args-to-arr/dist/args-to-arr.umd.min.js"></script>
+```
+
+*[more options on jsDelivr website...](https://www.jsdelivr.com/package/npm/args-to-arr)*
+
+#### unpkg.com
+
+```html
+<script src="https://unpkg.com/args-to-arr@1.3.2/dist/args-to-arr.umd.js"></script>
 ```
 
 ## Usage
 
-#### Syntax
+###### syntax
 
 ```typescript
 toArray<T>(arr: ArrayLike<T>, start: number = 0): T[];
@@ -30,7 +42,7 @@ toArray<T>(arr: ArrayLike<T>, start: number = 0): T[];
 
 > *Note that* `args-to-arr` *supports any array-like object*
 
-#### Example
+###### example
 
 ```javascript
 import toArray from "args-to-arr";

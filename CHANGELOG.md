@@ -1,6 +1,7 @@
 #v1.3.3
 
 * added jsDelivr badge
+* improved documentation
 
 #v1.3.2
 
