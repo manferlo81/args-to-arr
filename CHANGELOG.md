@@ -1,5 +1,6 @@
 #v1.3.3
 
+* test refactoring
 * improved documentation
 * added jsDelivr badge
 * added types badge
