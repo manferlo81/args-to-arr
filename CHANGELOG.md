@@ -1,3 +1,7 @@
+#v1.3.3
+
+* added jsDelivr badge
+
 #v1.3.2
 
 * dependencies updated
