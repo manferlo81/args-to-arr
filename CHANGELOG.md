@@ -1,5 +1,6 @@
 #v1.3.4
 
+* dependencies updated
 * added install size badge
 * improved documentation
 
