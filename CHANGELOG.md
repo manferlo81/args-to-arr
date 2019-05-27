@@ -1,3 +1,7 @@
+#v1.3.4
+
+* improved documentation
+
 #v1.3.3
 
 * test refactoring
