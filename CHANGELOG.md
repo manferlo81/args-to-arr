@@ -1,3 +1,7 @@
+#v1.3.5
+
+* added minified size badge
+
 #v1.3.4
 
 * dependencies updated
