@@ -14,6 +14,8 @@
     "arguments",
     "params",
     "array",
+    "array-like",
+    "to-array",
     "convert",
     "slice"
   ],
