@@ -1,5 +1,6 @@
 #v1.3.5
 
+* improved documentation
 * added minified size badge
 
 #v1.3.4

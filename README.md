@@ -26,7 +26,7 @@ npm i args-to-arr
 <script src="https://cdn.jsdelivr.net/npm/args-to-arr/dist/args-to-arr.umd.min.js"></script>
 ```
 
-*[more options on jsDelivr website...](https://www.jsdelivr.com/package/npm/args-to-arr)*
+*[more options...](https://www.jsdelivr.com/package/npm/args-to-arr)*
 
 ### unpkg
 
@@ -35,6 +35,8 @@ npm i args-to-arr
 ```html
 <script src="https://unpkg.com/args-to-arr/dist/args-to-arr.umd.js"></script>
 ```
+
+*[more options...](https://unpkg.com/args-to-arr/)*
 
 ## Usage
 
