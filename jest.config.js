@@ -5,6 +5,9 @@ const minCoverage = 99;
 module.exports = {
 
   testEnvironment: "node",
+  browser: false,
+
+  cacheDirectory: ".cache/jest",
 
   collectCoverage: true,
   coverageDirectory: "coverage",
