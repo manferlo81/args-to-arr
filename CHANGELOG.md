@@ -1,3 +1,7 @@
+#v1.3.6
+
+* improved changelog document
+
 #v1.3.5
 
 * improved documentation
@@ -19,24 +23,56 @@
 #v1.3.2
 
 * dependencies updated
+* improved documentation
 
-#v1.3.x
+#v1.3.1
 
-* CDN / browser support
+* dependencies updated
 
-#v1.2.x
+#v1.3.0
 
-* Build using typescript
+* browser support
+* dependencies updated
+* added badges
+* test refactoring
 
-#v1.1.x
+#v1.2.4
 
-* Use `is-array-like`
-* Optimize output
+* dependencies updated
 
-#v1.0.x
+#v1.2.3
 
-* First Stable Release
+* improved documentation
+* switched to `bundlib`
+* `tslint` setup
 
-#v0.0.x
+#v1.2.2
 
-* Preliminary Release
+* dependencies updated
+
+#v1.2.1
+
+* dependencies updated
+
+#v1.2.0
+
+* build using `typescript`
+* `is-array-like` type definitions
+
+#v1.1.0
+
+* using `is-array-like`
+* optimize output
+* test refactoring
+
+#v1.0.1
+
+* changelog documented
+
+#v1.0.0
+
+* first stable release
+
+#v0.0.1
+
+* preliminary release
