@@ -3,11 +3,12 @@
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
+    "esModuleInterop": true,
     "strict": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "esModuleInterop": true,
+    "noUnusedLocals": true,
     "baseUrl": ".",
     "paths": {
       "*": [
