@@ -46,7 +46,7 @@ npm i args-to-arr
 toArray<T>(arr: ArrayLike<T>, start: number = 0): T[];
 ```
 
-> *Note that* `args-to-arr` *supports any* `array-like` *object*
+> *Note that* `args-to-arr` *supports any* `array-like` *object*.
 
 ###### example
 
