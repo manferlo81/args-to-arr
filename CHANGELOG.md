@@ -1,3 +1,7 @@
+#v1.3.7
+
+* performance improvements
+
 #v1.3.6
 
 * improved changelog document

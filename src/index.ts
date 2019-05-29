@@ -14,7 +14,7 @@ function toArray<T>(args: ArrayLike<T>, start?: number): T[] {
     throw new TypeError(`${start} is not a number.`);
   }
 
-  const params = [];
+  const params = new Array(args.length - start);
 
   for (let index = start, len = args.length; index < len; index++) {
     params[index - start] = args[index];
