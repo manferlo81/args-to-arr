@@ -100,6 +100,7 @@ describe("args-to-arr", () => {
 
     const result = toArray(args, start);
 
+    expect(result).toHaveLength(expected.length);
     expect(result).toEqual(expected);
 
   });
