@@ -1,5 +1,6 @@
 #v1.3.9
 
+* build a minified `umd` build
 * dependencies updated
 
 #v1.3.8
