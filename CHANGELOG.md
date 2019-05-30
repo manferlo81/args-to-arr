@@ -1,3 +1,7 @@
+#v1.3.8
+
+* dependencies updated
+
 #v1.3.7
 
 * performance improvements
