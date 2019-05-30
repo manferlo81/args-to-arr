@@ -23,7 +23,7 @@
     "slice"
   ],
   "scripts": {
-    "lint": "tslint src/**",
+    "lint": "tslint src/**/*.ts",
     "clean": "rm -rf .cache dist types coverage",
     "dev": "bundlib -dw",
     "build": "npm run lint && bundlib -d",
