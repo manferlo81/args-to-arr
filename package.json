@@ -18,6 +18,7 @@
     "array-like",
     "to-array",
     "convert",
+    "rest",
     "slice"
   ],
   "scripts": {
