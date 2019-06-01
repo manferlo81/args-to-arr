@@ -1,6 +1,6 @@
 import isArrayLike from "is-array-like";
 
-function toArray<T>(args: ArrayLike<T>, start?: number): T[] {
+function toArray<T>(args: ArrayLike<T>, start?: number | null): T[] {
 
   if (!isArrayLike(args)) {
     throw new TypeError(`${args} can't be converted to array.`);
@@ -14,13 +14,14 @@ function toArray<T>(args: ArrayLike<T>, start?: number): T[] {
     throw new TypeError(`${start} is not a number.`);
   }
 
-  const params = new Array(args.length - start);
+  const len = args.length;
+  const result = new Array(len - start);
 
-  for (let index = start, len = args.length; index < len; index++) {
-    params[index - start] = args[index];
+  for (let i = start; i < len; i++) {
+    result[i - start] = args[i];
   }
 
-  return params;
+  return result;
 
 }
 
