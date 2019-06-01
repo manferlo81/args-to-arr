@@ -1,7 +1,7 @@
 {
   "name": "args-to-arr",
   "version": "1.3.10",
-  "description": "Arguments to array, the easy way",
+  "description": "converts arguments or any other array-like object into an array starting from specific index.",
   "main": "dist/args-to-arr.cjs.js",
   "module": "dist/args-to-arr.es.js",
   "browser": "dist/args-to-arr.umd.js",

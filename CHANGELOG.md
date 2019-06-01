@@ -1,5 +1,6 @@
 # v1.3.11 (01-06-2019)
 
+* description changed
 * dependencies updated
 
 # v1.3.10 (31-05-2019)
