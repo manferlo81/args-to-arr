@@ -1,3 +1,7 @@
+# v1.3.11 (01-06-2019)
+
+* dependencies updated
+
 # v1.3.10 (31-05-2019)
 
 * fixed cdn links for latest version
