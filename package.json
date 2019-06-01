@@ -8,9 +8,7 @@
   "bundlib": {
     "name": "toArray",
     "equals": true,
-    "min": [
-      "browser"
-    ]
+    "min": "browser"
   },
   "typings": "types/index.d.ts",
   "keywords": [
