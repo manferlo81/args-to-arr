@@ -1,11 +1,10 @@
 const toArray = require("..");
 
 function toArrayWithActualArguments(args, start) {
-  const startProvided = arguments.length > 1;
   const func = function () {
-    return startProvided ? toArray(arguments, start) : toArray(arguments);
+    return toArray(arguments, start);
   };
-  return args ? func.apply(this, args) : func.call(this);
+  return func.apply(this, args);
 }
 
 describe("args-to-arr", () => {

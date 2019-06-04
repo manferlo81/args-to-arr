@@ -1,6 +1,7 @@
 # v1.3.13 (04-06-2019)
 
 * improved documentation
+* test refactoring
 
 # v1.3.12 (01-06-2019)
 
