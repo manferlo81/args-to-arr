@@ -67,6 +67,21 @@ function anything(firstArg) {
 }
 ```
 
+### Node.js
+
+```javascript
+const toArray = require("args-to-arr");
+const array = toArray(arrayLike, start);
+```
+
+### Browser
+
+*After adding the* `script` *tag,* `toArray` *function will be available globally.*
+
+```javascript
+const array = toArray(arrayLike, start);
+```
+
 ## License
 
 [MIT](LICENSE) &copy; [Manuel Fernández](https://github.com/manferlo81)
