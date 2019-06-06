@@ -1,3 +1,7 @@
+# v1.3.14 (07-06-2019)
+
+* dependencies updated
+
 # v1.3.13 (04-06-2019)
 
 * improved documentation
