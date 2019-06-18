@@ -1,6 +1,6 @@
 import isArrayLike from "is-array-like";
 
-function toArray<T>(args: IArguments | ArrayLike<T>, start?: number | null): T[] {
+function toArray<T>(args: IArguments | T[] | ArrayLike<T>, start?: number | null): T[] {
 
   if (!isArrayLike(args)) {
     throw new TypeError(`${args} can't be converted to array.`);
