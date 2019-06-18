@@ -1,8 +1,11 @@
 import isArrayLike from "is-array-like";
 
-function toArray<T>(args: IArguments | T[] | ArrayLike<T>, start?: number | null): T[] {
+function toArray<T>(
+  args: IArguments | T[] | string | ArrayLike<T>,
+  start?: number | null,
+): T[] {
 
-  if (!isArrayLike(args)) {
+  if (!isArrayLike(args) && args !== "") {
     throw new TypeError(`${args} can't be converted to array.`);
   }
 
@@ -20,11 +23,12 @@ function toArray<T>(args: IArguments | T[] | ArrayLike<T>, start?: number | null
     start += len;
   }
 
+  const argsObj = Object(args);
   const result = new Array(len - start);
 
   for (let i = start; i < len; i++) {
-    if (i in args) {
-      result[i - start] = args[i];
+    if (i in argsObj) {
+      result[i - start] = argsObj[i];
     }
   }
 

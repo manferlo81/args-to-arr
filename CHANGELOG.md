@@ -1,5 +1,9 @@
 # args-to-arr changelog
 
+## v1.4.2 (18-06-2019)
+
+* fix: string support
+
 ## v1.4.1 (18-06-2019)
 
 * dependencies updated

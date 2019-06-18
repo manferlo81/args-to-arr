@@ -16,7 +16,7 @@ describe("args-to-arr", () => {
     // @ts-ignore
     const callWithWrongArgs = () => toArray({}, 0);
 
-    expect(callWithWrongArgs).toThrowError(TypeError);
+    expect(callWithWrongArgs).toThrow(TypeError);
 
   });
 
@@ -39,7 +39,7 @@ describe("args-to-arr", () => {
 
     wrongStart.forEach((start) => {
       // @ts-ignore
-      expect(() => toArray([], start)).toThrowError(TypeError);
+      expect(() => toArray([], start)).toThrow(TypeError);
     });
 
   });
@@ -61,6 +61,28 @@ describe("args-to-arr", () => {
 
     expect(result).toEqual(args);
     expect(result).not.toBe(args);
+
+  });
+
+  test("should work with empty string", () => {
+
+    expect(() => {
+
+      const result = toArray("", 0);
+
+      expect(result).toEqual([]);
+
+    }).not.toThrow();
+
+  });
+
+  test("should work with strings", () => {
+
+    const args = "abc";
+    const arr = args.split("");
+    const result = toArray(args, 0);
+
+    expect(result).toEqual(arr);
 
   });
 
