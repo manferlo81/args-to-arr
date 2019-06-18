@@ -1,6 +1,6 @@
 import isArrayLike from "is-array-like";
 
-function toArray<T>(args: ArrayLike<T>, start?: number | null): T[] {
+function toArray<T>(args: IArguments | ArrayLike<T>, start?: number | null): T[] {
 
   if (!isArrayLike(args)) {
     throw new TypeError(`${args} can't be converted to array.`);
@@ -10,15 +10,17 @@ function toArray<T>(args: ArrayLike<T>, start?: number | null): T[] {
     start = 0;
   }
 
-  if (typeof start !== "number") {
-    throw new TypeError(`${start} is not a number.`);
+  if (typeof start !== "number" || !isFinite(start)) {
+    throw new TypeError(`${start} is not a valid start point.`);
   }
 
   const len = args.length;
   const result = new Array(len - start);
 
   for (let i = start; i < len; i++) {
-    result[i - start] = args[i];
+    if (i in args) {
+      result[i - start] = args[i];
+    }
   }
 
   return result;

@@ -26,6 +26,12 @@ describe("args-to-arr", () => {
       true,
       false,
       () => { },
+      1 / 0,
+      -1 / 0,
+      Infinity,
+      -Infinity,
+      1 / "NaN",
+      NaN,
     ];
 
     wrongStart.forEach((start) => {
@@ -44,7 +50,7 @@ describe("args-to-arr", () => {
 
   });
 
-  test("should work with non arguments array or array-like", () => {
+  test("should work with non arguments, array or array-like", () => {
 
     const args = [1, 5, true, null, {}];
     const result = toArray(args, 0);
@@ -63,6 +69,19 @@ describe("args-to-arr", () => {
     expect(result).not.toBe(args);
 
   });
+
+  test("should skip non-existent values", () => {
+
+    // eslint-disable-next-line no-sparse-arrays
+    const args = [0, 1, , 3, 4];
+
+    const result = toArray(args, 0);
+
+    expect(result).not.toHaveProperty("2");
+    expect(2 in result).toBe(false);
+
+  });
+
 
   test("should default to 0 if 'start' argument not provided", () => {
 
