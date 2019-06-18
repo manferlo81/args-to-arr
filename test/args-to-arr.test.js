@@ -1,3 +1,5 @@
+// @ts-check
+
 const toArray = require("..");
 
 function toArrayWithActualArguments(args, start) {
@@ -11,6 +13,7 @@ describe("args-to-arr", () => {
 
   test("should throw error on wrong 'args' argument", () => {
 
+    // @ts-ignore
     const callWithWrongArgs = () => toArray({}, 0);
 
     expect(callWithWrongArgs).toThrowError(TypeError);
@@ -30,11 +33,12 @@ describe("args-to-arr", () => {
       -1 / 0,
       Infinity,
       -Infinity,
-      1 / "NaN",
+      1 / +"NaN",
       NaN,
     ];
 
     wrongStart.forEach((start) => {
+      // @ts-ignore
       expect(() => toArray([], start)).toThrowError(TypeError);
     });
 
