@@ -44,11 +44,22 @@ npm i args-to-arr
 
 ## Usage
 
-###### syntax
+### Node.js
 
-```typescript
-toArray<T>(arr: ArrayLike<T>, start: number = 0): T[];
+```javascript
+const toArray = require("args-to-arr");
+const array = toArray(arrayLike, start);
 ```
+
+### Browser
+
+*After adding the* `script` *tag,* `toArray` *function will be available globally.*
+
+```javascript
+const array = toArray(arrayLike, start);
+```
+
+## Reference
 
 ###### example
 
@@ -67,19 +78,50 @@ function anything(firstArg) {
 }
 ```
 
-### Node.js
+###### syntax
 
-```javascript
-const toArray = require("args-to-arr");
-const array = toArray(arrayLike, start);
+```typescript
+toArray<T>(arr: ArrayLike<T>, start: number = 0): T[];
 ```
 
-### Browser
+##### return
+*type*: `Array`
 
-*After adding the* `script` *tag,* `toArray` *function will be available globally.*
+*It returns a new array based on the provided parameters.*
+
+##### arr
+*type*: `Array` | `ArrayLike`
+
+*Array or Array-like object to be converted to a new array.*
+
+##### start
+*type*: `number`
+*default*: `0`
+
+*Index number for array convertion to start from. If not provided or it equals* `null` *or* `undefined` *it will default to* `0`*.*
+
+*Providing a negative start index will cause the function to start iterating* `X` *items from the end of the array, see the following example.*
+
+###### example
 
 ```javascript
-const array = toArray(arrayLike, start);
+const array = toArray([1, 2, 3, 4], -2);
+console.log(array);
+```
+```console
+[ 3, 4 ]
+```
+
+*If the provided negative start index exceeds the size of the array, it will fill the begining of the resulting array with* `empty` *values.*
+
+###### example
+
+```javascript
+const array = toArray([1, 2], -4);
+console.log(array);
+```
+```console
+[ <2 empty items>, 1, 2 ]
 ```
 
 ## License

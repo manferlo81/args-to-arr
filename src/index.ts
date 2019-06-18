@@ -15,6 +15,11 @@ function toArray<T>(args: IArguments | ArrayLike<T>, start?: number | null): T[]
   }
 
   const len = args.length;
+
+  if (start < 0) {
+    start += len;
+  }
+
   const result = new Array(len - start);
 
   for (let i = start; i < len; i++) {

@@ -77,11 +77,31 @@ describe("args-to-arr", () => {
 
     const result = toArray(args, 0);
 
-    expect(result).not.toHaveProperty("2");
     expect(2 in result).toBe(false);
 
   });
 
+  test("should follow negative start argument", () => {
+
+    // eslint-disable-next-line no-sparse-arrays
+    const lastArgs = [null, {}];
+    const args = [1, 5, true, ...lastArgs];
+    const result = toArray(args, -lastArgs.length);
+
+    expect(result).toEqual(lastArgs);
+
+  });
+
+  test("should follow off bound negative start argument", () => {
+
+    const args = [1, 2];
+    const result = toArray(args, -3);
+
+    // eslint-disable-next-line no-sparse-arrays
+    expect(result).toEqual([, 1, 2]);
+    expect(0 in result).toBe(false);
+
+  });
 
   test("should default to 0 if 'start' argument not provided", () => {
 
