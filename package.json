@@ -38,13 +38,13 @@
     "is-array-like": "^1.1.2"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.13",
-    "@types/node": "^12.0.6",
+    "@types/jest": "^24.0.15",
+    "@types/node": "^12.0.8",
     "bundlib": "^0.5.1",
     "eslint": "^5.16.0",
     "jest": "^24.8.0",
     "tslint": "^5.17.0",
-    "typescript": "^3.5.1"
+    "typescript": "^3.5.2"
   },
   "author": "Manuel Fernandez <manferlo81@gmail.com>",
   "repository": {

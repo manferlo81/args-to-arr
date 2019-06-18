@@ -1,5 +1,9 @@
 # args-to-arr changelog
 
+## v1.4.1 (18-06-2019)
+
+* dependencies updated
+
 ## v1.4.0 (18-06-2019)
 
 * negative start point support
