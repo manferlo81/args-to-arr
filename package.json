@@ -30,7 +30,6 @@
     "preversion": "npm run clean && npm run build && npm test"
   },
   "files": [
-    "src",
     "dist",
     "types"
   ],
