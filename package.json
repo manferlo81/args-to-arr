@@ -45,7 +45,10 @@
     "tslint": "^5.18.0",
     "typescript": "^3.5.2"
   },
-  "author": "Manuel Fernandez <manferlo81@gmail.com>",
+  "author": {
+    "name": "Manuel Fernandez",
+    "email": "manferlo81@gmail.com"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/manferlo81/args-to-arr.git"
