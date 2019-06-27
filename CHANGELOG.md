@@ -1,7 +1,7 @@
 # args-to-arr changelog
 
 ## v1.4.4
-*25-JUN-2019*
+*27-JUN-2019*
 
 * dependencies updated
 
