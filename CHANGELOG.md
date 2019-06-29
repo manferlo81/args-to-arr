@@ -1,9 +1,10 @@
 # args-to-arr changelog
 
 ## v1.4.4
-*27-JUN-2019*
+*29-JUN-2019*
 
 * dependencies updated
+* `ts-jest` for typescript test
 
 ## v1.4.3
 *22-JUN-2019*

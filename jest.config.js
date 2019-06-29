@@ -1,6 +1,5 @@
 const CI = process.env.CI;
-
-const minCoverage = 99;
+const minCoverage = 95;
 
 module.exports = {
 
@@ -8,6 +7,8 @@ module.exports = {
   browser: false,
 
   cacheDirectory: "node_modules/.cache/jest",
+
+  preset: "ts-jest",
 
   collectCoverage: true,
   coverageDirectory: "coverage",

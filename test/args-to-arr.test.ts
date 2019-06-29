@@ -1,12 +1,10 @@
-// @ts-check
+import toArray from "../src";
 
-const toArray = require("..");
-
-function toArrayWithActualArguments(args, start) {
-  const func = function () {
+function toArrayWithActualArguments(this: any, args: any[], start: number) {
+  function func() {
     return toArray(arguments, start);
-  };
-  return func.apply(this, args);
+  }
+  return func.apply<any, any, any>(this, args);
 }
 
 describe("args-to-arr", () => {
@@ -28,7 +26,7 @@ describe("args-to-arr", () => {
       [],
       true,
       false,
-      () => { },
+      () => null,
       1 / 0,
       -1 / 0,
       Infinity,
