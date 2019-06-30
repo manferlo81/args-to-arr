@@ -1,4 +1,3 @@
-const CI = process.env.CI;
 const minCoverage = 95;
 
 module.exports = {
@@ -11,9 +10,12 @@ module.exports = {
   preset: "ts-jest",
 
   collectCoverage: true,
+  collectCoverageFrom: [
+    "src/**/*.ts",
+  ],
   coverageDirectory: "coverage",
   coverageReporters: [
-    CI ? "json" : "lcov",
+    process.env.CI ? "json" : "lcov",
     "text",
     "text-summary",
   ],
