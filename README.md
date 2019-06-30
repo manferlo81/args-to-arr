@@ -20,7 +20,7 @@ npm i args-to-arr
 <script src="https://cdn.jsdelivr.net/npm/args-to-arr@latest/dist/args-to-arr.umd.js"></script>
 ```
 
-##### for production
+***for production***
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/args-to-arr@latest/dist/args-to-arr.umd.min.js"></script>
@@ -34,7 +34,7 @@ npm i args-to-arr
 <script src="https://unpkg.com/args-to-arr@latest/dist/args-to-arr.umd.js"></script>
 ```
 
-##### for production
+***for production***
 
 ```html
 <script src="https://unpkg.com/args-to-arr@latest/dist/args-to-arr.umd.min.js"></script>
@@ -61,7 +61,7 @@ const array = toArray(arrayLike, start);
 
 ## Reference
 
-###### example
+***example***
 
 ```javascript
 import toArray from "args-to-arr";
@@ -78,23 +78,26 @@ function anything(firstArg) {
 }
 ```
 
-###### syntax
+***syntax***
 
 ```typescript
 toArray<T>(arr: ArrayLike<T>, start: number = 0): T[];
 ```
 
-##### return
+### return
+
 *type*: `Array`
 
 *It returns a new array based on the provided parameters.*
 
-##### arr
+### arr
+
 *type*: `Array` | `ArrayLike`
 
 *Array or Array-like object to be converted to a new array.*
 
-##### start
+### start
+
 *type*: `number`
 *default*: `0`
 
@@ -102,24 +105,26 @@ toArray<T>(arr: ArrayLike<T>, start: number = 0): T[];
 
 *Providing a negative start index will cause the function to start iterating* `X` *items from the end of the array, see the following example.*
 
-###### example
+***example***
 
 ```javascript
 const array = toArray([1, 2, 3, 4], -2);
 console.log(array);
 ```
+
 ```console
 [ 3, 4 ]
 ```
 
 *If the provided negative start index exceeds the size of the array, it will fill the begining of the resulting array with* `empty` *values.*
 
-###### example
+***example***
 
 ```javascript
 const array = toArray([1, 2], -4);
 console.log(array);
 ```
+
 ```console
 [ <2 empty items>, 1, 2 ]
 ```
