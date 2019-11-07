@@ -8,12 +8,6 @@
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "baseUrl": ".",
-    "paths": {
-      "*": [
-        "definitions/*"
-      ]
-    }
+    "noUnusedLocals": true
   }
 }
