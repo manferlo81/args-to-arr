@@ -37,7 +37,7 @@
   ],
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^2.6.1",
-    "@typescript-eslint/parser": "^2.6.1",
+    "@typescript-eslint/parser": "^2.7.0",
     "is-array-like": "^1.1.2"
   },
   "devDependencies": {
