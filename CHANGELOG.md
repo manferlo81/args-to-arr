@@ -1,16 +1,8 @@
 # args-to-arr changelog
 
-## Changes
+## Version History
 
 ### [1.4.8](https://github.com/manferlo81/args-to-arr/compare/v1.4.7...v1.4.8) (2019-11-07)
-
-
-### Other Changes
-
-* edited badges ([15e2ffe](https://github.com/manferlo81/args-to-arr/commit/15e2ffed4c3d5e54bd8ecf0c10a5503afd1b94d4))
-* **deps-dev:** dependencies updated ([8fbc385](https://github.com/manferlo81/args-to-arr/commit/8fbc385cee844dc083309688a69b20bc07211fab))
-* setup standard-version ([f996689](https://github.com/manferlo81/args-to-arr/commit/f99668909697a4e4788e1da2f1f7c3d96130cfcd))
-* switched from tslint to [@typescript-eslint](https://github.com/typescript-eslint) ([f803f60](https://github.com/manferlo81/args-to-arr/commit/f803f606757e592d797586fe59df7dccfaed950d))
 
 ### [1.4.7](https://github.com/manferlo81/args-to-arr/compare/v1.4.6...v1.4.7) (2019-09-14)
 
