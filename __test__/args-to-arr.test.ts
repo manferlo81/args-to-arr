@@ -1,19 +1,23 @@
-/* eslint-disable @typescript-eslint/ban-ts-ignore, @typescript-eslint/no-explicit-any */
-
 import toArray from '../src'
 
 function toArrayWithActualArguments(this: any, args: any[], start: number) {
+
   function func() {
     // eslint-disable-next-line prefer-rest-params
     return toArray(arguments, start)
   }
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+  // @ts-ignore
   return func.apply<any, any, any>(this, args)
+
 }
 
 describe('args-to-arr', () => {
 
   test('should throw error on wrong \'args\' argument', () => {
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
     // @ts-ignore
     const callWithWrongArgs = () => toArray({}, 0)
 
@@ -39,6 +43,7 @@ describe('args-to-arr', () => {
     ]
 
     wrongStart.forEach((start) => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
       // @ts-ignore
       expect(() => toArray([], start)).toThrow(TypeError)
     })
