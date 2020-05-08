@@ -1,17 +1,14 @@
-const minCoverage = 95
-
 module.exports = {
 
   testEnvironment: 'node',
-  browser: false,
 
   cacheDirectory: 'node_modules/.cache/jest',
 
   preset: 'ts-jest',
   globals: {
     'ts-jest': {
-      tsconfig: 'tsconfig.test.json'
-    }
+      tsconfig: 'tsconfig.test.json',
+    },
   },
 
   collectCoverage: true,
@@ -24,14 +21,6 @@ module.exports = {
     'text',
     'text-summary',
   ],
-  coverageThreshold: {
-    global: {
-      branches: minCoverage,
-      functions: minCoverage,
-      lines: minCoverage,
-      statements: minCoverage,
-    },
-  },
 
   verbose: null,
 
