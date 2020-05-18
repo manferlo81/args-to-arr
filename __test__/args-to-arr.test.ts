@@ -1,31 +1,23 @@
-import toArray from '../src'
-
-function toArrayWithActualArguments(this: any, args: any[], start: number) {
-
-  function func() {
-    // eslint-disable-next-line prefer-rest-params
-    return toArray(arguments, start)
-  }
-
-  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-  // @ts-ignore
-  return func.apply<any, any, any>(this, args)
-
-}
+import toArray from '../src';
 
 describe('args-to-arr', () => {
 
-  test('should throw error on wrong \'args\' argument', () => {
+  function toArrayWithActualArguments(this: any, args: any[], start: number) {
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore
-    const callWithWrongArgs = () => toArray({}, 0)
+    function func() {
+      // eslint-disable-next-line prefer-rest-params
+      return toArray(arguments, start);
+    }
 
-    expect(callWithWrongArgs).toThrow(TypeError)
+    return func.apply<any, any[], any[]>(this, args);
 
-  })
+  }
 
-  test('should throw error on wrong \'start\' argument', () => {
+  test('Should throw on invalid \'args\' argument', () => {
+    expect(() => toArray({} as never, 0)).toThrow(TypeError);
+  });
+
+  test('Should throw on invalid \'start\' argument', () => {
 
     const wrongStart = [
       'wrong argument',
@@ -40,139 +32,119 @@ describe('args-to-arr', () => {
       -Infinity,
       1 / +'NaN',
       NaN,
-    ]
+    ];
 
     wrongStart.forEach((start) => {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-      // @ts-ignore
-      expect(() => toArray([], start)).toThrow(TypeError)
-    })
+      expect(() => toArray([], start as never)).toThrow(TypeError);
+    });
 
-  })
+  });
 
-  test('should work with actual arguments', () => {
+  test('Should work with actual arguments', () => {
 
-    const args = [1, 5, true, null, {}]
-    const result = toArrayWithActualArguments(args, 0)
+    const args = [1, 5, true, null, {}];
+    const result = toArrayWithActualArguments(args, 0);
 
-    expect(result).toEqual(args)
-    expect(result).not.toBe(args)
+    expect(result).toEqual(args);
 
-  })
+  });
 
-  test('should work with non arguments, array or array-like', () => {
+  test('Should work with non arguments, array or array-like', () => {
 
-    const args = [1, 5, true, null, {}]
-    const result = toArray(args, 0)
+    const args = [1, 5, true, null, {}];
+    const result = toArray(args, 0);
 
-    expect(result).toEqual(args)
-    expect(result).not.toBe(args)
+    expect(result).toEqual(args);
 
-  })
+  });
 
-  test('should work with empty string', () => {
+  test('Should work with empty string', () => {
+    expect(toArray('', 0)).toEqual([]);
+  });
 
-    expect(() => {
+  test('Should work with strings', () => {
 
-      const result = toArray('', 0)
+    const args = 'abc';
+    const arr = args.split('');
 
-      expect(result).toEqual([])
+    expect(toArray(args, 0)).toEqual(arr);
 
-    }).not.toThrow()
+  });
 
-  })
+  test('Should return a copy of the array', () => {
 
-  test('should work with strings', () => {
+    const args = [1, 5, true, null, {}];
+    const result = toArray(args, 0);
 
-    const args = 'abc'
-    const arr = args.split('')
-    const result = toArray(args, 0)
+    expect(result).toEqual(args);
+    expect(result).not.toBe(args);
 
-    expect(result).toEqual(arr)
+  });
 
-  })
+  test('Should skip non-existent values', () => {
+    // eslint-disable-next-line no-sparse-arrays
+    const result = toArray([0, 1, , 3, 4], 0);
+    expect(2 in result).toBe(false);
+  });
 
-  test('should return a copy of the array', () => {
+  test('Should follow negative start argument', () => {
 
-    const args = [1, 5, true, null, {}]
-    const result = toArray(args, 0)
+    const lastArgs = [null, {}];
+    const args = [1, 5, true, ...lastArgs];
 
-    expect(result).toEqual(args)
-    expect(result).not.toBe(args)
+    expect(toArray(args, -lastArgs.length)).toEqual(lastArgs);
 
-  })
+  });
 
-  test('should skip non-existent values', () => {
+  test('Should follow off bound negative start argument', () => {
+
+    const args = [1, 2];
+    const result = toArray(args, -3);
 
     // eslint-disable-next-line no-sparse-arrays
-    const args = [0, 1, , 3, 4]
+    expect(result).toEqual([, 1, 2]);
+    expect(0 in result).toBe(false);
 
-    const result = toArray(args, 0)
+  });
 
-    expect(2 in result).toBe(false)
+  test('Should default to 0 if \'start\' argument not provided', () => {
 
-  })
+    const args = [1, 5, true, null, {}];
+    const result = toArray(args);
 
-  test('should follow negative start argument', () => {
+    expect(result).toEqual(args);
 
-    // eslint-disable-next-line no-sparse-arrays
-    const lastArgs = [null, {}]
-    const args = [1, 5, true, ...lastArgs]
-    const result = toArray(args, -lastArgs.length)
+  });
 
-    expect(result).toEqual(lastArgs)
+  test('Should default to 0 if \'start\' argument is null', () => {
 
-  })
+    const args = [1, 5, true, null, {}];
+    const result = toArray(args, null);
 
-  test('should follow off bound negative start argument', () => {
+    expect(result).toEqual(args);
 
-    const args = [1, 2]
-    const result = toArray(args, -3)
+  });
 
-    // eslint-disable-next-line no-sparse-arrays
-    expect(result).toEqual([, 1, 2])
-    expect(0 in result).toBe(false)
+  test('Should default to 0 if \'start\' argument is undefined', () => {
 
-  })
+    const args = [1, 5, true, null, {}];
+    const result = toArray(args, undefined);
 
-  test('should default to 0 if \'start\' argument not provided', () => {
+    expect(result).toEqual(args);
 
-    const args = [1, 5, true, null, {}]
-    const result = toArray(args)
+  });
 
-    expect(result).toEqual(args)
+  test('Should start from provided \'start\' argument', () => {
 
-  })
+    const expected = [true, null, {}];
+    const args = [1, 5, ...expected];
+    const start = args.length - expected.length;
 
-  test('should default to 0 if \'start\' argument is null', () => {
+    const result = toArray(args, start);
 
-    const args = [1, 5, true, null, {}]
-    const result = toArray(args, null)
+    expect(result).toHaveLength(expected.length);
+    expect(result).toEqual(expected);
 
-    expect(result).toEqual(args)
+  });
 
-  })
-
-  test('should default to 0 if \'start\' argument is undefined', () => {
-
-    const args = [1, 5, true, null, {}]
-    const result = toArray(args, undefined)
-
-    expect(result).toEqual(args)
-
-  })
-
-  test('should start from provided \'start\' argument', () => {
-
-    const expected = [true, null, {}]
-    const args = [1, 5, ...expected]
-    const start = args.length - expected.length
-
-    const result = toArray(args, start)
-
-    expect(result).toHaveLength(expected.length)
-    expect(result).toEqual(expected)
-
-  })
-
-})
+});

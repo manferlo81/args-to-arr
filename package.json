@@ -9,7 +9,8 @@
   "typings": "types/index.d.ts",
   "bundlib": {
     "name": "toArray",
-    "min": "browser"
+    "min": "browser",
+    "project": "tsconfig-build.json"
   },
   "keywords": [
     "arguments",
