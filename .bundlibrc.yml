@@ -1,0 +1,4 @@
+name: toArray
+min: browser
+
+project: tsconfig-build.json

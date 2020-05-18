@@ -7,11 +7,6 @@
   "browser": "dist/args-to-arr.umd.js",
   "types": "types/index.d.ts",
   "typings": "types/index.d.ts",
-  "bundlib": {
-    "name": "toArray",
-    "min": "browser",
-    "project": "tsconfig-build.json"
-  },
   "keywords": [
     "arguments",
     "params",
