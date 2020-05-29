@@ -13,7 +13,7 @@ function toArray<T>(
     start = 0;
   }
 
-  if (typeof start !== 'number' || !isFinite(start)) {
+  if (typeof start !== 'number' || !Number.isFinite(start)) {
     throw new TypeError(`${start} is not a valid start point.`);
   }
 
