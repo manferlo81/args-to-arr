@@ -17,7 +17,7 @@ function toArray<T>(
     throw new TypeError(`${start} is not a valid start point.`);
   }
 
-  const len = args.length;
+  const { length: len } = args;
 
   if (start < 0) {
     start += len;
