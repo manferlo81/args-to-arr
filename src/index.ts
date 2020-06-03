@@ -6,6 +6,7 @@ function toArray<T>(
 ): T[] {
 
   if (!isArrayLike(args) && args !== '') {
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
     throw new TypeError(`${args} can't be converted to array.`);
   }
 
@@ -23,8 +24,8 @@ function toArray<T>(
     start += len;
   }
 
-  const argsObj = Object(args);
-  const result = new Array(len - start);
+  const argsObj = Object(args) as Record<number, T>;
+  const result = new Array<T>(len - start);
 
   for (let i = start; i < len; i++) {
     if (i in argsObj) {

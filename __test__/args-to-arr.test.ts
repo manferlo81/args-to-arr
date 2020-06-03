@@ -2,14 +2,14 @@ import toArray from '../src';
 
 describe('args-to-arr', () => {
 
-  function toArrayWithActualArguments(this: any, args: any[], start: number) {
+  function toArrayWithActualArguments<T>(this: any, args: any[], start: number): T[] {
 
     function func() {
       // eslint-disable-next-line prefer-rest-params
-      return toArray(arguments, start);
+      return toArray<T>(arguments, start);
     }
 
-    return func.apply<any, any[], any[]>(this, args);
+    return func.apply<any, any[], T[]>(this, args);
 
   }
 
