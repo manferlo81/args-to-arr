@@ -2,6 +2,13 @@
 
 ## Version History
 
+### [1.4.9](https://github.com/manferlo81/args-to-arr/compare/v1.4.8...v1.4.9) (2020-06-11)
+
+
+### Bug Fixes
+
+* dependencies updated (vulnerabilities) ([844c93f](https://github.com/manferlo81/args-to-arr/commit/844c93f66cf98a049809f8222d6ec57171522ec3))
+
 ### [1.4.8](https://github.com/manferlo81/args-to-arr/compare/v1.4.7...v1.4.8) (2019-11-07)
 
 ### [1.4.7](https://github.com/manferlo81/args-to-arr/compare/v1.4.6...v1.4.7) (2019-09-14)
