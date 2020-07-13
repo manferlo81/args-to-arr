@@ -1,7 +1,7 @@
 {
   "name": "args-to-arr",
   "version": "1.4.9",
-  "description": "converts arguments or any other array-like object into an array starting from specific index.",
+  "description": "Converts arguments or any other array-like object into an array starting from specific index.",
   "main": "dist/args-to-arr.js",
   "module": "dist/args-to-arr.mjs",
   "browser": "dist/args-to-arr.umd.js",
@@ -36,6 +36,7 @@
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
+    "@rollup/plugin-babel": "^5.1.0",
     "@rollup/plugin-commonjs": "^13.0.1",
     "@rollup/plugin-node-resolve": "^8.4.0",
     "@types/jest": "^26.0.4",
@@ -48,7 +49,6 @@
     "husky": "^4.2.5",
     "jest": "^26.1.0",
     "rollup": "^2.21.0",
-    "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-export-equals": "^0.3.6",
     "rollup-plugin-terser": "^6.1.0",
