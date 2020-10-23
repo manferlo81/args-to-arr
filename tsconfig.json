@@ -11,7 +11,9 @@
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "declaration": true,
+    "declarationMap": true
   },
   "include": [
     "src/**/*.ts",

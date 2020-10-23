@@ -5,8 +5,8 @@
   "main": "dist/args-to-arr.js",
   "module": "dist/args-to-arr.mjs",
   "browser": "dist/args-to-arr.umd.js",
-  "types": "types/index.d.ts",
-  "typings": "types/index.d.ts",
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
   "keywords": [
     "arguments",
     "params",
@@ -18,7 +18,7 @@
     "slice"
   ],
   "scripts": {
-    "clean": "rm -rf node_modules/.cache/bundlib node_modules/.cache/jest dist types coverage",
+    "clean": "rm -rf node_modules/.cache/bundlib node_modules/.cache/jest dist coverage",
     "lint": "eslint src/** __test__/**",
     "dev": "bundlib -dw",
     "build": "bundlib -d",
