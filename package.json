@@ -18,12 +18,16 @@
     "slice"
   ],
   "scripts": {
-    "clean": "rm -rf node_modules/.cache/bundlib node_modules/.cache/jest dist coverage",
-    "lint": "eslint src/** __test__/**",
+    "clean:cache": "rimraf node_modules/.cache/{bundlib,jest}",
+    "clean:build": "rimraf dist coverage",
+    "clean": "run-p clean:*",
+    "lint:src": "eslint src/**",
+    "lint:test": "eslint __test__/**",
+    "lint": "run-p lint:*",
     "dev": "bundlib -dw",
     "build": "bundlib -d",
     "test": "jest --color -w 3",
-    "prerelease": "npm run clean && npm run lint && npm test && npm run build",
+    "prerelease": "run-s clean lint test build",
     "release": "standard-version"
   },
   "dependencies": {
@@ -40,6 +44,8 @@
     "eslint": "^7.28.0",
     "husky": "^6.0.0",
     "jest": "^27.0.4",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
     "standard-version": "^9.3.0",
     "ts-jest": "^27.0.3",
     "typescript": "^4.3.2"
