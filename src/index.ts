@@ -6,8 +6,7 @@ function toArray<T>(
 ): T[] {
 
   if (!isArrayLike(args) && args !== '') {
-    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-    throw new TypeError(`${args} can't be converted to array.`);
+    throw new TypeError(`${args as string} can't be converted to array.`);
   }
 
   if (start == null) {
