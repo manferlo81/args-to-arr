@@ -12,7 +12,7 @@ executors:
   executor_node_20:
     docker:
       - image: cimg/node:20.17.0
-    working_directory: ~/args-to-arr-node-20
+    working_directory: ~/args-to-arr-node-18
 
 commands:
   command_checkout_and_install:
@@ -42,14 +42,14 @@ commands:
   command_save_workspace:
     steps:
       - persist_to_workspace:
-          root: ~/args-to-arr
+          root: ~/args-to-arr-node-18
           paths:
             - .
 
   command_restore_workspace:
     steps:
       - attach_workspace:
-          at: ~/args-to-arr
+          at: ~/args-to-arr-node-18
 
   command_publish_to_npm:
     steps:
