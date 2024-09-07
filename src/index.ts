@@ -14,7 +14,7 @@ function toArray<T>(
   }
 
   if (typeof start !== 'number' || !Number.isFinite(start)) {
-    throw new TypeError(`${start} is not a valid start point.`);
+    throw new TypeError(`${start as unknown as string} is not a valid start point.`);
   }
 
   const { length: len } = args;
