@@ -10,6 +10,20 @@ executors:
     working_directory: ~/args-to-arr
 
 commands:
+  command_checkout_and_install:
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v3-deps-args-to-arr-{{ checksum "package.json" }}
+            - v3-deps-args-to-arr-
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - save_cache:
+          key: v3-deps-args-to-arr-{{ checksum "package.json" }}
+          paths:
+            - node_modules
   command_save_workspace:
     steps:
       - persist_to_workspace:
@@ -32,21 +46,19 @@ commands:
           command: npm publish
 
 jobs:
-  job_test_and_build:
+  job_checkout_and_lint:
     executor: executor_node_18
     steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v3-deps-args-to-arr-{{ checksum "package.json" }}
-            - v3-deps-args-to-arr-
+      - command_checkout_and_install
       - run:
-          name: Install Dependencies
-          command: npm install
-      - save_cache:
-          key: v3-deps-args-to-arr-{{ checksum "package.json" }}
-          paths:
-            - node_modules
+          name: Lint
+          command: npm run lint
+      - command_save_workspace
+
+  job_ci:
+    executor: executor_node_18
+    steps:
+      - command_restore_workspace
       - run:
           name: Run Tests
           command: npm test
@@ -71,7 +83,16 @@ jobs:
 workflows:
   workflow_ci:
     jobs:
-      - job_test_and_build:
+      - job_checkout_and_lint:
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              only: /.*/
+
+      - job_ci:
+          requires:
+            - job_checkout_and_lint
           filters:
             tags:
               only: /.*/
@@ -80,7 +101,7 @@ workflows:
 
       - job_upload_coverage:
           requires:
-            - job_test_and_build
+            - job_ci
           filters:
             branches:
               only: /master/
@@ -88,7 +109,7 @@ workflows:
       - job_publish_to_npm:
           context: npm
           requires:
-            - job_test_and_build
+            - job_ci
           filters:
             tags:
               only: /^v\d+\.\d+\.\d+$/
