@@ -12,7 +12,6 @@ const config = {
   coverageReporters: [
     process.env.CI ? 'json' : 'lcov',
     'text',
-    'text-summary',
   ],
 
   verbose: true,
