@@ -7,7 +7,12 @@ executors:
   executor_node_18:
     docker:
       - image: cimg/node:18.20
-    working_directory: ~/args-to-arr
+    working_directory: ~/args-to-arr-node-18
+
+  executor_node_20:
+    docker:
+      - image: cimg/node:20.17.0
+    working_directory: ~/args-to-arr-node-20
 
 commands:
   command_checkout_and_install:
@@ -15,15 +20,25 @@ commands:
       - checkout
       - restore_cache:
           keys:
-            - v3-deps-args-to-arr-{{ checksum "package.json" }}
-            - v3-deps-args-to-arr-
+            - v1-deps-args-to-arr-{{ checksum "package.json" }}
+            - v1-deps-args-to-arr-
       - run:
           name: Install Dependencies
           command: npm install
       - save_cache:
-          key: v3-deps-args-to-arr-{{ checksum "package.json" }}
+          key: v1-deps-args-to-arr-{{ checksum "package.json" }}
           paths:
             - node_modules
+
+  command_ci:
+    steps:
+      - run:
+          name: Run Tests
+          command: npm test
+      - run:
+          name: Build
+          command: npm run build
+
   command_save_workspace:
     steps:
       - persist_to_workspace:
@@ -46,7 +61,7 @@ commands:
           command: npm publish
 
 jobs:
-  job_checkout_and_lint:
+  job_lint:
     executor: executor_node_18
     steps:
       - command_checkout_and_install
@@ -55,17 +70,18 @@ jobs:
           command: npm run lint
       - command_save_workspace
 
-  job_ci:
+  job_ci_node_18:
     executor: executor_node_18
     steps:
       - command_restore_workspace
-      - run:
-          name: Run Tests
-          command: npm test
-      - run:
-          name: Build
-          command: npm run build
+      - command_ci
       - command_save_workspace
+
+  job_ci_node_20:
+    executor: executor_node_20
+    steps:
+      - command_checkout_and_install
+      - command_ci
 
   job_upload_coverage:
     executor: executor_node_18
@@ -83,16 +99,25 @@ jobs:
 workflows:
   workflow_ci:
     jobs:
-      - job_checkout_and_lint:
+      - job_lint:
           filters:
             tags:
               only: /.*/
             branches:
               only: /.*/
 
-      - job_ci:
+      - job_ci_node_18:
           requires:
-            - job_checkout_and_lint
+            - job_lint
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              only: /.*/
+
+      - job_ci_node_20:
+          requires:
+            - job_lint
           filters:
             tags:
               only: /.*/
@@ -101,7 +126,8 @@ workflows:
 
       - job_upload_coverage:
           requires:
-            - job_ci
+            - job_ci_node_18
+            - job_ci_node_20
           filters:
             branches:
               only: /master/
@@ -109,7 +135,8 @@ workflows:
       - job_publish_to_npm:
           context: npm
           requires:
-            - job_ci
+            - job_ci_node_18
+            - job_ci_node_20
           filters:
             tags:
               only: /^v\d+\.\d+\.\d+$/
