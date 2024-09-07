@@ -1,16 +1,16 @@
 *         text=auto
 
-*.js      text  eol=crlf
-*.cjs     text  eol=crlf
-*.mjs     text  eol=crlf
-*.ts      text  eol=crlf
+*.js      text  eol=lf
+*.cjs     text  eol=lf
+*.mjs     text  eol=lf
+*.ts      text  eol=lf
 
-*.json    text  eol=crlf
-*.yaml    text  eol=crlf
-*.yml     text  eol=crlf
-*.md      text  eol=crlf
+*.json    text  eol=lf
+*.yaml    text  eol=lf
+*.yml     text  eol=lf
+*.md      text  eol=lf
 
-.*rc      text  eol=crlf
-.*config  text  eol=crlf
-.*ignore  text  eol=crlf
-.git*     text  eol=crlf
+.*rc      text  eol=lf
+.*config  text  eol=lf
+.*ignore  text  eol=lf
+.git*     text  eol=lf
