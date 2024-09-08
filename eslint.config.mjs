@@ -11,8 +11,8 @@ function normalizeRuleEntry(entry) {
 
 function createRuleNameNormalizer(pluginName) {
   if (!pluginName) return (ruleName) => ruleName;
+  const pluginPrefix = `${pluginName}/`;
   return (ruleName) => {
-    const pluginPrefix = `${pluginName}/`;
     if (ruleName.startsWith(pluginPrefix)) return ruleName;
     return `${pluginPrefix}${ruleName}`;
   };
@@ -21,33 +21,36 @@ function createRuleNameNormalizer(pluginName) {
 function normalizeRules(pluginName, rules) {
   const normalizeRuleName = createRuleNameNormalizer(pluginName);
   return Object.fromEntries(
-    Object.entries(rules).map(([ruleName, ruleEntry]) => {
-      return [normalizeRuleName(ruleName), normalizeRuleEntry(ruleEntry)];
-    }),
+    Object.entries(rules).map(
+      ([ruleName, ruleEntry]) => [normalizeRuleName(ruleName), normalizeRuleEntry(ruleEntry)],
+    ),
   );
 }
 
 const eslintRules = normalizeRules(null, {
   'no-useless-rename': 'error',
   'object-shorthand': 'error',
+  'prefer-template': 'error',
 });
 
 const stylisticRules = normalizeRules('@stylistic', {
-  semi: 'always',
-  indent: 2,
-  quotes: 'single',
   'linebreak-style': 'unix',
-
-  'quote-props': 'as-needed',
-  'arrow-parens': 'always',
   'no-extra-parens': 'all',
   'no-extra-semi': 'error',
-
   'padded-blocks': 'off',
 });
 
 const typescriptRules = normalizeRules('@typescript-eslint', {
   'no-explicit-any': 'off',
+});
+
+const stylisticConfig = stylistic.configs.customize({
+  semi: true,
+  indent: 2,
+  quotes: 'single',
+  quoteProps: 'as-needed',
+  arrowParens: true,
+  braceStyle: '1tbs',
 });
 
 const typescriptConfig = config(
@@ -61,7 +64,7 @@ export default config(
   { ignores: ['dist', 'coverage'] },
   { languageOptions: { globals: { ...globals.node, ...globals.browser } } },
   pluginJs.configs.recommended,
-  stylistic.configs['recommended-flat'],
+  stylisticConfig,
   ...typescriptConfig,
   { rules: { ...eslintRules, ...stylisticRules, ...typescriptRules } },
 );
