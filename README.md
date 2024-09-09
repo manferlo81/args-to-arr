@@ -17,13 +17,13 @@ npm i args-to-arr
 ### jsDelivr
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/args-to-arr@latest/dist/args-to-arr.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/args-to-arr@latest/dist/umd/args-to-arr.umd.js"></script>
 ```
 
 ***for production***
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/args-to-arr@latest/dist/args-to-arr.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/args-to-arr@latest/dist/umd/args-to-arr.umd.min.js"></script>
 ```
 
 *[more options...](https://www.jsdelivr.com/package/npm/args-to-arr?version=latest)*
@@ -31,13 +31,13 @@ npm i args-to-arr
 ### unpkg
 
 ```html
-<script src="https://unpkg.com/args-to-arr@latest/dist/args-to-arr.umd.js"></script>
+<script src="https://unpkg.com/args-to-arr@latest/dist/umd/args-to-arr.umd.js"></script>
 ```
 
 ***for production***
 
 ```html
-<script src="https://unpkg.com/args-to-arr@latest/dist/args-to-arr.umd.min.js"></script>
+<script src="https://unpkg.com/args-to-arr@latest/dist/umd/args-to-arr.umd.min.js"></script>
 ```
 
 *[more options...](https://unpkg.com/args-to-arr@latest/)*

@@ -15,14 +15,14 @@
   "type": "commonjs",
   "exports": {
     "types": "./dist/types/index.d.ts",
-    "import": "./dist/args-to-arr.mjs",
-    "require": "./dist/args-to-arr.js",
-    "node": "./dist/args-to-arr.js",
-    "default": "./dist/args-to-arr.js"
+    "import": "./dist/esm/args-to-arr.mjs",
+    "require": "./dist/commonjs/args-to-arr.cjs",
+    "node": "./dist/commonjs/args-to-arr.cjs",
+    "default": "./dist/commonjs/args-to-arr.cjs"
   },
-  "main": "./dist/args-to-arr.js",
-  "module": "./dist/args-to-arr.mjs",
-  "browser": "./dist/args-to-arr.umd.js",
+  "main": "./dist/commonjs/args-to-arr.cjs",
+  "module": "./dist/esm/args-to-arr.mjs",
+  "browser": "./dist/umd/args-to-arr.umd.js",
   "types": "./dist/types/index.d.ts",
   "typings": "./dist/types/index.d.ts",
   "scripts": {
