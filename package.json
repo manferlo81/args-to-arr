@@ -2,11 +2,6 @@
   "name": "args-to-arr",
   "version": "1.4.9",
   "description": "Converts arguments or any other array-like object into an array starting from specific index.",
-  "main": "dist/args-to-arr.js",
-  "module": "dist/args-to-arr.mjs",
-  "browser": "dist/args-to-arr.umd.js",
-  "types": "dist/index.d.ts",
-  "typings": "dist/index.d.ts",
   "keywords": [
     "arguments",
     "params",
@@ -17,6 +12,19 @@
     "rest",
     "slice"
   ],
+  "type": "commonjs",
+  "exports": {
+    "types": "./dist/types/index.d.ts",
+    "import": "./dist/args-to-arr.mjs",
+    "require": "./dist/args-to-arr.js",
+    "node": "./dist/args-to-arr.js",
+    "default": "./dist/args-to-arr.js"
+  },
+  "main": "./dist/args-to-arr.js",
+  "module": "./dist/args-to-arr.mjs",
+  "browser": "./dist/args-to-arr.umd.js",
+  "types": "./dist/types/index.d.ts",
+  "typings": "./dist/types/index.d.ts",
   "scripts": {
     "clean:cache": "rimraf --glob node_modules/.cache/{bundlib,jest}",
     "clean:build": "rimraf dist coverage",
