@@ -1,0 +1,27 @@
+changelog:
+  exclude:
+    authors:
+      - dependabot
+
+  categories:
+    - title: Breaking Changes
+      labels:
+        - breaking
+        - breaking change
+        - breaking-change
+
+    - title: Features
+      labels:
+        - feature
+        - feat
+
+    - title: Other Changes
+      labels:
+        - "*"
+      exclude:
+        labels:
+          - breaking
+          - breaking change
+          - breaking-change
+          - feature
+          - feat
