@@ -45,13 +45,13 @@
     "is-array-like": "^1.1.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@babel/preset-env": "^7.25.4",
+    "@babel/core": "^7.25.8",
+    "@babel/preset-env": "^7.25.8",
     "@eslint/js": "^9.12.0",
     "@stylistic/eslint-plugin": "^2.9.0",
     "@types/jest": "^29.5.13",
     "bundlib": "^0.21.4",
-    "chokidar": "^4.0.0",
+    "chokidar": "^4.0.1",
     "core-js": "^3.38.1",
     "eslint": "^9.12.0",
     "globals": "^15.11.0",
