@@ -8,7 +8,13 @@ on:
 
 jobs:
   create_release:
+    name: Create GitHub Release
+
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout, Setup Node.js v20.x and Install dependencies
         uses: manferlo81/action-checkout-node-install@v0
