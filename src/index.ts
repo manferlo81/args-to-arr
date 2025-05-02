@@ -9,6 +9,7 @@ function toArray<T>(
     throw new TypeError(`${args as string} can't be converted to array.`);
   }
 
+  // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
   if (start == null) {
     start = 0;
   }
