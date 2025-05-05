@@ -11,6 +11,7 @@ const javascriptPluginConfig = config(
     'object-shorthand': 'error',
     'prefer-template': 'error',
     'no-useless-concat': 'error',
+    eqeqeq: 'smart',
   }),
 );
 
@@ -31,7 +32,6 @@ const stylisticPluginConfig = config(
   //
   // eslint-disable-next-line import-x/no-named-as-default-member
   pluginStylistic.configs.customize({
-    quotes: 'single',
     indent: 2,
     semi: true,
     arrowParens: true,
@@ -39,6 +39,7 @@ const stylisticPluginConfig = config(
     braceStyle: '1tbs',
   }),
   normalizeRulesConfig('@stylistic', {
+    quotes: 'single',
     'linebreak-style': 'unix',
     'no-extra-parens': 'all',
     'no-extra-semi': 'error',
@@ -47,9 +48,9 @@ const stylisticPluginConfig = config(
 );
 
 const typescriptPluginConfig = config(
+  { languageOptions: { parserOptions: { projectService: true, tsconfigRootDir: import.meta.dirname } } },
   pluginTypescriptConfigs.strictTypeChecked,
   pluginTypescriptConfigs.stylisticTypeChecked,
-  { languageOptions: { parserOptions: { projectService: true, tsconfigRootDir: import.meta.dirname } } },
   normalizeRulesConfig('@typescript-eslint', {
     'no-explicit-any': 'off',
   }),
@@ -81,20 +82,20 @@ function normalizeRulesConfig(pluginName, rules) {
 
 function createEntryNormalizer(pluginName) {
   if (!pluginName) return ([ruleName, ruleEntry]) => [ruleName, normalizeRuleEntry(ruleEntry)];
-  const normalizeRuleName = createPluginRuleNameNormalizer(pluginName);
+  const normalizeRuleName = createPluginKeyNormalizer(pluginName);
   return ([ruleName, ruleEntry]) => [normalizeRuleName(ruleName), normalizeRuleEntry(ruleEntry)];
 }
 
-function createPluginRuleNameNormalizer(pluginName) {
+function createPluginKeyNormalizer(pluginName) {
   const pluginPrefix = `${pluginName}/`;
-  return (ruleName) => {
-    if (ruleName.startsWith(pluginPrefix)) return ruleName;
-    return `${pluginPrefix}${ruleName}`;
+  return (key) => {
+    if (key.startsWith(pluginPrefix)) return key;
+    return `${pluginPrefix}${key}`;
   };
 }
 
 function normalizeRuleEntry(entry) {
   if (Array.isArray(entry)) return entry;
-  if (['error', 'warn', 'off'].includes(entry)) return entry;
+  if (['error', 'off', 'warn'].includes(entry)) return entry;
   return ['error', entry];
 }
